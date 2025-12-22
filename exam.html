@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Online Exam</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="exam.css">
+</head>
+<body>
+
+<div class="exam-container">
+
+  <!-- HEADER -->
+  <header class="exam-header">
+    <h2>Online Exam</h2>
+    <div class="timer" id="timer">10:00</div>
+  </header>
+ 
+  <div class="exam-body">
+
+    <!-- QUESTION SECTION -->
+    <div class="question-section">
+      <h3 id="questionIndicator"></h3>
+      <p id="questionText"></p>
+
+      <div class="answers" id="answers"></div>
+
+      <div class="controls">
+        <button id="prevBtn">Previous</button>
+        <button id="markBtn">Mark</button>
+        <button id="nextBtn">Next</button>
+        <button id="submitBtn">Submit</button>
+      </div>
+    </div>
+
+    <!-- MARKED QUESTIONS -->
+    <aside class="side-panel">
+      <h4>Marked Questions</h4>
+      <ul id="markedList"></ul>
+    </aside>
+
+  </div>
+</div>
+
+<script src="exam.js"></script>
+</body>
+</html>

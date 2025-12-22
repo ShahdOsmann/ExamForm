@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exam Home</title>
+  <link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+<div class="home-container">
+  <div class="home-box">
+    <h1>Welcome to the Programming Exam</h1>
+    <p class="instructions">
+      This exam contains 10 multiple-choice questions.<br>
+      You will have limited time to complete it.<br>
+      Make sure you read each question carefully and answer all questions.
+    </p>
+    <button id="startExamBtn">Start Exam</button>
+  </div>
+</div>
+
+<script>
+  document.getElementById('startExamBtn').addEventListener('click', () => {
+    window.location.href = 'exam.html';
+  });
+    document.getElementById('startExamBtn').addEventListener('click', () => {
+    // mark exam as started
+    localStorage.setItem('examStarted', 'true');
+
+    // replace so back button won't return here
+    window.location.replace('exam.html');
+  });
+</script>
+
+</body>
+</html>

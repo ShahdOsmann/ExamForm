@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #2e2f6b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  background: #fff;
+  width: 900px;
+  max-width: 95%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.form-container {
+  display: flex;
+  min-height: 500px;
+}
+
+/* IMAGE */
+.image-box {
+  width: 50%;
+  background: #f6f7ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-box img {
+  width: 80%;
+}
+
+/* FORM */
+.form-box {
+  width: 50%;
+  padding: 30px;
+  overflow: hidden; 
+}
+
+/* TOGGLE BUTTON */
+.toggle-container {
+  position: relative;
+  width: 260px;
+  height: 45px;
+  background: #e0e0e0;
+  border-radius: 30px;
+  display: flex;
+  margin: 0 auto 30px;
+}
+
+.toggle-btn {
+  flex: 1;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 2;
+}
+
+.toggle-btn.active {
+  color: #fff;
+}
+
+.toggle-slider {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background: #3b5bfd;
+  border-radius: 30px;
+  left: 0;
+  transition: 0.4s ease;
+}
+
+/* FORMS SLIDE */
+.forms-wrapper {
+  display: flex;
+  width: 200%;
+  transition: 0.5s ease; 
+}
+
+.form {
+  width: 50%;
+  padding: 0 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* VERTICAL CENTER */
+}
+
+.form h2 {
+  margin-bottom: 20px;
+  color: #2e2f6b;
+}
+
+/* INPUTS */
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  border-radius: 4px;
+}
+
+.input-group label {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  font-size: 14px;
+  color: #777;
+  transform: translateY(-50%);
+  transition: 0.3s;
+  background: #fff;
+  padding: 0 5px;
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label {
+  top: -6px;
+  font-size: 12px;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #3b5bfd;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* SLIDE STATE */
+.show-register .toggle-slider {
+  left: 50%;
+}
+
+.show-register .forms-wrapper {
+  transform: translateX(-50%);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .form-container {
+    flex-direction: column;
+  }
+  .image-box,
+  .form-box {
+    width: 100%;
+  }
+}
