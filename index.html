@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Login</title>
+    <script></script>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="opacity-0 transaton duration-500" id="toast">
+      <div class="toast toast-top toast-end">
+        <div class="alert alert-success">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 shrink-0 stroke-current text-white"
+            fill="none"
+            viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <p class="text-white text-sm">Sign Up successfully.</p>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="form-container">
+        <!-- LEFT IMAGE (UNCHANGED DESIGN) -->
+        <div class="image-box">
+          <img src="img.png" alt="student" />
+        </div>
+
+        <!-- RIGHT FORM SECTION -->
+        <div class="form-box">
+          <!-- SLIDER BUTTON (GEEKSFORGEEKS CONCEPT) -->
+          <div class="toggle-container">
+            <div class="toggle-slider"></div>
+            <!---->
+            <button id="loginBtn" class="toggle-btn active">Login</button>
+            <button id="registerBtn" class="toggle-btn">Register</button>
+          </div>
+
+          <!-- FORMS -->
+          <div class="forms-wrapper">
+            <!-- LOGIN FORM -->
+            <form id="loginForm" class="form active">
+              <p class="text-2xl font-bold text-blue-900">Student Login</p>
+
+              <div class="input-group">
+                <input type="email" id="loginEmail" placeholder="Email" />
+                <span id="emailSpan"></span>
+              </div>
+
+              <div class="input-group">
+                <input
+                  type="password"
+                  id="loginPassword"
+                  placeholder="password" />
+                <span id="passSpan"></span>
+              </div>
+
+              <button type="submit" id="loginSubmit">Login</button>
+              <span id="loginSpan"></span>
+            </form>
+
+            <!-- REGISTER FORM -->
+            <form id="registerForm" class="form">
+              <p class="text-2xl font-bold text-blue-900 mt-80">
+                Create Account
+              </p>
+
+              <div class="input-group">
+                <input type="text" id="regName" placeholder="name" />
+                <span id="nameSpan"></span>
+              </div>
+
+              <div class="input-group">
+                <input type="email" id="regEmail" placeholder="email" />
+                <span id="rEmailSpan"></span>
+              </div>
+
+              <div class="input-group">
+                <input
+                  type="password"
+                  id="regPassword"
+                  placeholder="password" />
+                <span id="rPassSpan"></span>
+              </div>
+
+              <div class="input-group">
+                <input
+                  type="password"
+                  id="regConfirm"
+                  placeholder="confirm password" />
+                <span id="rPassConfirmSpan"></span>
+              </div>
+
+              <button type="submit" id="regSubmit">Register</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

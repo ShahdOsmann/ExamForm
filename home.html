@@ -1,37 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Exam Home</title>
-  <link rel="stylesheet" href="home.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exam Home</title>
+    <script>
+      if (!sessionStorage.getItem("currentUser")) {
+        window.location.replace("index.html");
+      }
+      history.pushState(null, null, location.href);
+      window.addEventListener("popstate", () => history.go(1));
+    </script>
+    <link rel="stylesheet" href="home.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <!-- Open the modal using ID.showModal() method -->
+    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+      <div class="modal-box bg-white rounded-3xl shadow-xl border-2">
+        <h3 class="text-lg font-bold"></h3>
+        <p class="text-center text-xl font-semibold text-black">
+          Press start if you are ready to start your exam now.
+        </p>
+        <div class="modal-action">
+          <form method="dialog">
+            <button class="btn btn-error">Close</button>
+            <button class="btn btn-success text-white" id="btn-success">
+              start
+            </button>
+          </form>
+        </div>
+      </div>
+    </dialog>
 
-<div class="home-container">
-  <div class="home-box">
-    <h1>Welcome to the Programming Exam</h1>
-    <p class="instructions">
-      This exam contains 10 multiple-choice questions.<br>
-      You will have limited time to complete it.<br>
-      Make sure you read each question carefully and answer all questions.
-    </p>
-    <button id="startExamBtn">Start Exam</button>
-  </div>
-</div>
-
-<script>
-  document.getElementById('startExamBtn').addEventListener('click', () => {
-    window.location.href = 'exam.html';
-  });
-    document.getElementById('startExamBtn').addEventListener('click', () => {
-    // mark exam as started
-    localStorage.setItem('examStarted', 'true');
-
-    // replace so back button won't return here
-    window.location.replace('exam.html');
-  });
-</script>
-
-</body>
+    <div class="home-container">
+      <div class="home-box">
+        <p id="head">Welcome to the Programming Exam</p>
+        <p class="instructions">
+          This exam contains 10 multiple-choice questions.<br />
+          You will have limited time to complete it.<br />
+          Make sure you read each question carefully and answer all questions.
+        </p>
+        <button id="startExamBtn" onclick="my_modal_5.showModal()">
+          Start Exam
+        </button>
+      </div>
+    </div>
+    <script>
+      if (!JSON.parse(sessionStorage.getItem("currentUser"))) {
+        window.location.replace("index.html");
+      }
+      // document.getElementById("btn-success").addEventListener("click", () => {
+      //   window.location.href = "exam.html";
+      // });
+      document.getElementById("btn-success").addEventListener("click", (e) => {
+        // mark exam as started
+        //localStorage.setItem("examStarted", "true");
+        e.preventDefault();
+        // replace so back button won't return here
+        window.location.replace("exam.html");
+      });
+    </script>
+  </body>
 </html>

@@ -1,47 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Online Exam</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="exam.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Online Exam</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      if (!sessionStorage.getItem("currentUser")) {
+        window.location.replace("index.html");
+      }
+    </script>
+    <link rel="stylesheet" href="exam.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+      <div class="modal-box bg-white rounded-3xl shadow-xl border-2">
+        <h3 class="text-lg font-bold"></h3>
+        <p class="text-center text-xl font-semibold text-black">
+          Press OK if you are sure to submit.
+        </p>
+        <div class="flex justify-center">
+          <div class="modal-action">
+            <form method="dialog">
+              <button class="btn btn-error">Cancel</button>
+              <button class="btn btn-success text-white" id="btn-success">
+                OK
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </dialog>
 
-<div class="exam-container">
+    <div class="exam-container">
+      <!-- HEADER -->
+      <header class="exam-header">
+        <p class="text-xl font-semibold">Online Exam</p>
+        <div class="timer" id="timer">10:00</div>
+      </header>
+      <div
+        class="timer bg-gray-300 h-3 rounded-b-xl overflow-hidden flex items-center">
+        <div id="bar" class="w-[0%] bg-green-500 h-[100%]"></div>
+      </div>
 
-  <!-- HEADER -->
-  <header class="exam-header">
-    <h2>Online Exam</h2>
-    <div class="timer" id="timer">10:00</div>
-  </header>
- 
-  <div class="exam-body">
+      <div class="exam-body">
+        <!-- QUESTION SECTION -->
+        <div class="question-section">
+          <h3 id="questionIndicator"></h3>
+          <p id="questionText"></p>
 
-    <!-- QUESTION SECTION -->
-    <div class="question-section">
-      <h3 id="questionIndicator"></h3>
-      <p id="questionText"></p>
+          <div class="answers" id="answers"></div>
 
-      <div class="answers" id="answers"></div>
+          <div class="controls">
+            <button id="prevBtn">Previous</button>
+            <button id="markBtn">Mark</button>
+            <button id="nextBtn">Next</button>
+            <button id="submitBtn" onclick="my_modal_5.showModal()">
+              Submit
+            </button>
+          </div>
+        </div>
 
-      <div class="controls">
-        <button id="prevBtn">Previous</button>
-        <button id="markBtn">Mark</button>
-        <button id="nextBtn">Next</button>
-        <button id="submitBtn">Submit</button>
+        <!-- MARKED QUESTIONS -->
+        <aside class="side-panel">
+          <h4>Marked Questions</h4>
+          <ul id="markedList"></ul>
+        </aside>
       </div>
     </div>
 
-    <!-- MARKED QUESTIONS -->
-    <aside class="side-panel">
-      <h4>Marked Questions</h4>
-      <ul id="markedList"></ul>
-    </aside>
-
-  </div>
-</div>
-
-<script src="exam.js"></script>
-</body>
+    <script src="exam.js"></script>
+  </body>
 </html>
